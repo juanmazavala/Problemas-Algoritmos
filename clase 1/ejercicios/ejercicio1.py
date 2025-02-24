@@ -7,6 +7,14 @@ def sort_string_array(arr):
     :return: None - The array is modified in-place
     """
     # Implement the sorting algorithm here
+    abc = "abcdefghijklmnñopqrstuvwxyz"
+    length_arr = len(arr)
+    for index in range(length_arr-1):
+        for index_2 in range(1, length_arr-index):
+            if arr[index_2] < arr[index_2-1]:
+                arr[index_2], arr[index_2-1] = arr[index_2-1], arr[index_2]
+    return None
+
     pass
 
 # Test Cases

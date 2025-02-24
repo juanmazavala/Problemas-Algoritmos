@@ -8,14 +8,35 @@ def are_anagram(word1, word2):
     :return: bool - True if the words are anagrams, False otherwise
     """
     # Implement the algorithm to check for anagrams here
-    pass
+    if len(word1) == len(word2):
+        dic1 = {}
+        dic2 = {}
+        for letter in word1:
+            if letter in dic1:
+                dic1[letter] += 1
+            else:
+                dic1[letter] = 1
+        for letter in word2:
+            if letter in dic2:
+                dic2[letter] += 1
+            else:
+                dic2[letter] = 1
+        if dic1 == dic2:
+            print("Son anagramas")
+            return True
+        else:
+            print("No son anagramas.")
+            return False
+    else:
+        print("No tienen el mismo largo, no son anagramas.")
+        return False
 
 # Test Cases
 def test_are_anagram():
     test_cases = [
         ("roma", "amor", True),
         ("python", "typhon", True),
-        ("hola", "halo", False),
+        ("hola", "halo", True),
         ("listen", "silent", True),
         ("rat", "tar", True),
         ("hello", "world", False),
