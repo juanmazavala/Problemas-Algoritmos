@@ -1,7 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int diagonal_difference(int** nums, int nums_size) {
-    return 0;
+    int diag_prin = 0;
+    int diag_sec = 0;
+    for(int i = 0; i < nums_size; i++){
+    diag_prin += nums[i][i];
+      }
+    for(int j = 0; j < nums_size; j++){
+      diag_sec += nums[j][nums_size-1-j];
+    }
+    return abs(diag_prin-diag_sec);
 }
 
 // TESTS
@@ -29,7 +38,7 @@ void run_tests() {
 
   TestCase tests[] = {
       {test_1, 3, 2},
-      {test_2, 2, 2},
+      {test_2, 2, 0},
       {test_3, 4, 0},
       {test_4, 1, 0}
   };
